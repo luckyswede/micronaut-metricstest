@@ -1,0 +1,32 @@
+---
+micronaut:
+  application:
+    name: metrics-test
+
+---
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      statsd:
+        enabled: true
+        flavor: datadog
+        step: PT10S
+        host: localhost
+        port: 8125
+
+---
+micronaut:
+  security:
+    enabled: true
+    endpoints:
+      login:
+        enabled: false
+    token:
+      enabled: true
+      basic-auth:
+        enabled: false
+      jwt:
+        enabled: false
+        bearer:
+          enabled: false
